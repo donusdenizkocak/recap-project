@@ -9,15 +9,8 @@ import UpdateProduct from "./pages/UpdateProduct";
 
 function App() {
 
-  
-
   return (
     <div className="bg-light app">
-      {/* <Navbar/>
-      <Main/>
-      <About/>
-      <NewProduct/>
-      <ProductList/> */}
       <BrowserRouter>
       <Navbar/>
       <Routes>
