@@ -12,12 +12,13 @@ const url=process.env.REACT_APP_API_URL;
     const [errorState,setErrorState] =useState(false)
 
     const getProducts = async() =>{
+      console.log("merhaba")
         try {
             const {data} = await axios(url)
             setProduct(data)
             setErrorState(false)
             setLoading(false)
-            console.log("merhaba")
+           
         } catch (error) {
            console.log(error)
            setErrorState(true) 
