@@ -17,7 +17,7 @@ const url=process.env.REACT_APP_API_URL;
             setProduct(data)
             setErrorState(false)
             setLoading(false)
-
+            console.log(merhaba)
         } catch (error) {
            console.log(error)
            setErrorState(true) 
