@@ -12,13 +12,13 @@ const url=process.env.REACT_APP_API_URL;
     const [errorState,setErrorState] =useState(false)
 
     const getProducts = async() =>{
-      console.log("merhaba")
+     
         try {
             const {data} = await axios(url)
             setProduct(data)
             setErrorState(false)
             setLoading(false)
-           
+           console.log("heyo")
         } catch (error) {
            console.log(error)
            setErrorState(true) 
@@ -38,7 +38,7 @@ getProducts();
        : product.length > 0 ?
         <>
           <article id="product-panel" className="col-md-5">
-            <ProductCard />
+            <ProductCard product={product}/>
           </article>
           <article className="col-md-5 m-3">
             <CardTotal />
@@ -47,7 +47,7 @@ getProducts();
         : (!errorState && <p className="text-center text-danger w-100">No products data...</p> )
         }
 
-       {errorState && (<p className="text-center text-danger w-100">Error..</p>)}
+      {errorState && (<p className="text-center text-danger w-100">No data...</p>)}
       </div>
     </div>
   );
