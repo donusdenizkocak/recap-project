@@ -38,7 +38,10 @@ getProducts();
        : product.length > 0 ?
         <>
           <article id="product-panel" className="col-md-5">
-            <ProductCard product={product}/>
+           {product.map((item,id) => {
+            return <ProductCard item={item} key={id}/>
+           })}
+            
           </article>
           <article className="col-md-5 m-3">
             <CardTotal />
@@ -47,7 +50,7 @@ getProducts();
         : (!errorState && <p className="text-center text-danger w-100">No products data...</p> )
         }
 
-      {errorState && (<p className="text-center text-danger w-100">No data...</p>)}
+      {errorState && (<p className="text-center text-danger w-100">Error...</p>)}
       </div>
     </div>
   );
