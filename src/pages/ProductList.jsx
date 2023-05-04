@@ -44,7 +44,7 @@ getProducts();
             
           </article>
           <article className="col-md-5 m-3">
-            <CardTotal />
+            <CardTotal product={product}/>
           </article>
         </>
         : (!errorState && <p className="text-center text-danger w-100">No products data...</p> )

@@ -3,9 +3,9 @@ import React from "react";
 const taxRate = 0.18;
 const shipping = 25;
 
-const CardTotal = () => {
+const CardTotal = ({product}) => {
   
-  
+  const subTotal =product.reduce((acc,product)=> product.price*0.9*product)
   
   return (
     <table className="table w-100">
