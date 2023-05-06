@@ -1,6 +1,8 @@
+import axios from "axios";
 import React from "react";
 
-const ProductCard = ({item}) => {
+const ProductCard = ({item,getProducts}) => {
+  const url=process.env.REACT_APP_API_URL;
 const {ProductName,Image,ProductQuantity,ProductPrice,id} = item;
 
 const handleMinus =()=>{
@@ -11,8 +13,13 @@ const handlePlus =()=>{
   
 }
 
-const handleRemove =()=>{
-  
+const handleRemove =async()=>{
+  try {
+    await axios.delete(`${url}/${id}`)
+    getProducts()
+  } catch (error) {
+    console.log(error)
+  }
 }
   return (
     <div className="card shadow-lg mb-3">

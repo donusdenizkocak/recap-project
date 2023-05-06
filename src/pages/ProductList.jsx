@@ -39,7 +39,7 @@ getProducts();
         <>
           <article id="product-panel" className="col-md-5">
            {product.map((item,id) => {
-            return <ProductCard item={item} key={id}/>
+            return <ProductCard item={item} key={id} getProducts={getProducts}/>
            })}
             
           </article>
