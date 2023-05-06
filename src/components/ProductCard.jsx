@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 const ProductCard = ({item}) => {
@@ -43,7 +44,7 @@ const {ProductName,Image,ProductQuantity,ProductPrice,id} = item;
             </div>
             <div className="product-removal mt-4">
               <button className="btn btn-danger btn-sm w-100 remove-product">
-                <i className="fa-solid fa-trash-can me-2"></i>Remove
+              <i class="fa-solid fa-trash-xmark"></i>Remove
               </button>
             </div>
             <div className="mt-2">
