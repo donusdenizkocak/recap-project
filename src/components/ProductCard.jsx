@@ -5,21 +5,35 @@ const ProductCard = ({item,getProducts}) => {
   const url=process.env.REACT_APP_API_URL;
 const {ProductName,Image,ProductQuantity,ProductPrice,id} = item;
 
-const handleMinus =()=>{
-
+const handleMinus = async()=>{
+try {
+  await axios.put(`${url}/${id}`,{
+    ...item,ProductQuantity:ProductQuantity - 1
+  })
+} catch (error) {
+  console.log(error)
+}
+getProducts()
 }
 
-const handlePlus =()=>{
-  
+const handlePlus =async()=>{
+  try {
+    await axios.put(`${url}/${id}`,{
+      ...item,ProductQuantity:ProductQuantity + 1
+    })
+  } catch (error) {
+    console.log(error)
+  }
+  getProducts()
 }
 
 const handleRemove =async()=>{
   try {
     await axios.delete(`${url}/${id}`)
-    getProducts()
   } catch (error) {
     console.log(error)
   }
+  getProducts()
 }
   return (
     <div className="card shadow-lg mb-3">
