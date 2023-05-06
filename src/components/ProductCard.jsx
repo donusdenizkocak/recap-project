@@ -1,10 +1,19 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 const ProductCard = ({item}) => {
 const {ProductName,Image,ProductQuantity,ProductPrice,id} = item;
 
+const handleMinus =()=>{
 
+}
+
+const handlePlus =()=>{
+  
+}
+
+const handleRemove =()=>{
+  
+}
   return (
     <div className="card shadow-lg mb-3">
       <div className="row g-0">
@@ -31,20 +40,20 @@ const {ProductName,Image,ProductQuantity,ProductPrice,id} = item;
             </div>
             <div className="border border-1 border-dark shadow-lg d-flex justify-content-center p-2">
               <div className="quantity-controller">
-                <button className="btn btn-secondary btn-sm">
+                <button className="btn btn-secondary btn-sm" onClick={handleMinus}>
                   <i className="fas fa-minus"></i>
                 </button>
                 <p className="d-inline mx-4" id="product-quantity">
                   {ProductQuantity}
                 </p>
-                <button className="btn btn-secondary btn-sm">
+                <button className="btn btn-secondary btn-sm" onClick={handlePlus}>
                   <i className="fas fa-plus"></i>
                 </button>
               </div>
             </div>
             <div className="product-removal mt-4">
-              <button className="btn btn-danger btn-sm w-100 remove-product">
-              <i class="fa-solid fa-trash-xmark"></i>Remove
+              <button className="btn btn-danger btn-sm w-100 remove-product" onClick={handleRemove}>
+                <i className="fa-solid fa-trash-can me-2"></i>Remove
               </button>
             </div>
             <div className="mt-2">
