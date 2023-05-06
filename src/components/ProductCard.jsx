@@ -6,14 +6,17 @@ const ProductCard = ({item,getProducts}) => {
 const {ProductName,Image,ProductQuantity,ProductPrice,id} = item;
 
 const handleMinus = async()=>{
-try {
+if(ProductQuantity -1){try {
   await axios.put(`${url}/${id}`,{
     ...item,ProductQuantity:ProductQuantity - 1
   })
 } catch (error) {
   console.log(error)
 }
-getProducts()
+getProducts()}
+else{
+  handleRemove()
+}
 }
 
 const handlePlus =async()=>{
