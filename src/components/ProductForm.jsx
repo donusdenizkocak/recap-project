@@ -1,44 +1,50 @@
 
-const ProductForm = ({ formData,handleChange,handleSubmit, text }) => {
+const ProductForm = ({ formData,handleChange,handleSubmit }) => {
   
     return (
       <article id="add-product" className="mb-4 mt-4">
         <h1 className="text-center">Product</h1>
-        <form class="p-2">
+        <form class="p-2" onSubmit={handleSubmit}>
           <div class="mb-3">
-            <label for="add-name" class="form-label">
+            <label for="product-name" class="form-label">
               Product Name
             </label>
             <input
               type="text"
               class="form-control"
-              id="add-name"
+              id="product-name"
+              value={formData.name}
+              onChange={handleChange}
               required
             />
           </div>
           <div class="mb-3">
-            <label for="add-price" class="form-label">
+            <label for="product-price" class="form-label">
               Product Price
             </label>
             <input
               type="number"
               class="form-control"
-              id="add-price"
+              id="product-price"
+              value={formData.ProductPrice}
+              onChange={handleChange}
               required
             />
           </div>
           <div class="mb-3">
-            <label for="add-quantity" class="form-label">
+            <label for="product-quantity" class="form-label">
               Product Quantity
             </label>
             <input
               type="number"
               class="form-control"
-              id="add-quantity"
+              id="product-quantity"
+              value={formData.ProductQuantity}
+              onChange={handleChange}
               required
             />
           </div>
-          <label for="add-image" class="form-label">
+          <label for="image" class="form-label">
             Product Image
           </label>
           <div class="input-group mb-3">
@@ -48,7 +54,9 @@ const ProductForm = ({ formData,handleChange,handleSubmit, text }) => {
             <input
               type="url"
               class="form-control"
-              id="add-image"
+              id="image"
+              value={formData.image}
+              onChange={handleChange}
               aria-describedby="basic-addon3"
               required
             />

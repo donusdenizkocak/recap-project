@@ -15,12 +15,14 @@ const NewProduct = () => {
   const [formData, setFormData] = useState(initialState)
   const handleChange=(e)=>{
    setFormData({...formData, [e.target.id]:e.target.value})
+   console.log(setFormData)
   }
 
   const handleSubmit=async(e)=>{
     e.preventDefault();
     try {
       await axios.post(url,formData);
+      setFormData(initialState)
     } catch (error) {
       console.log(error)
     }
@@ -28,7 +30,7 @@ const NewProduct = () => {
 
   return (
     <div className='container'>
-      <ProductForm/>
+      <ProductForm handleChange={handleChange} handleSubmit={handleSubmit} formData={formData}/>
     </div>
   );
 }
