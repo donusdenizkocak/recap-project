@@ -1,9 +1,11 @@
 import axios from "axios";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({item,getProducts}) => {
   const url=process.env.REACT_APP_API_URL;
 const {ProductName,Image,ProductQuantity,ProductPrice,id} = item;
+const navigate = useNavigate();
 
 const handleMinus = async()=>{
 if(ProductQuantity -1){try {
@@ -38,6 +40,10 @@ const handleRemove =async()=>{
   }
   getProducts()
 }
+
+const editProduct =() =>{
+ navigate("/update-product", {state:item})
+}
   return (
     <div className="card shadow-lg mb-3">
       <div className="row g-0">
@@ -51,7 +57,7 @@ const handleRemove =async()=>{
         </div>
         <div className="col-md-7">
           <div className="card-body">
-            <h5 className="card-title" role="button">
+            <h5 className="card-title" role="button" onClick={editProduct}>
               {ProductName}
             </h5>
             <div className="product-price">

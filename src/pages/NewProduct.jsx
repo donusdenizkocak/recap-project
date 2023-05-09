@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const initialState={
   ProductName:"",
-  image:"",
+  Image:"",
   ProductPrice:0,
   ProductQuantity:1,
 }
@@ -13,6 +13,8 @@ const initialState={
 const NewProduct = () => {
   const url=process.env.REACT_APP_API_URL;
   const [formData, setFormData] = useState(initialState)
+
+
   const handleChange=(e)=>{
    setFormData({...formData, [e.target.id]:e.target.value})
    console.log(setFormData)
@@ -30,7 +32,7 @@ const NewProduct = () => {
 
   return (
     <div className='container'>
-      <ProductForm handleChange={handleChange} handleSubmit={handleSubmit} formData={formData}/>
+      <ProductForm handleChange={handleChange} handleSubmit={handleSubmit} formData={formData} text="New"/>
     </div>
   );
 }
